@@ -36,7 +36,7 @@ In the detail page, show the details of the book matching the ASIN in the query 
     <div class="container-fluid">
         <div class="row w-100">
             <div class="mx-auto my-4 w-100 d-flex">
-                <input type="text" class="p-2 w-50 mx-auto" placeholder="Search..." oninput="search(this.value)" />
+                <input type="text" class="p-2 w-50 mx-auto" placeholder="Search..." onchange="search(this.value)" />
             </div>
         </div>
     </div>
@@ -61,8 +61,8 @@ In the detail page, show the details of the book matching the ASIN in the query 
         function loadBooks() {
             fetch("https://striveschool-api.herokuapp.com/books")
                 .then((resp) => resp.json())
-                .then((_books) => {
-                    books = _books;
+                .then((data) => {
+                    books = data;
                     console.log(books);
                     displayBooks();
                 })
